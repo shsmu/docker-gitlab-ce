@@ -1,0 +1,15 @@
+web:
+  image: 'gitlab/gitlab-ce:latest'
+  restart: always
+  hostname: 'gitlab.example.com'
+  environment:
+    GITLAB_OMNIBUS_CONFIG: |
+      external_url 'https://gitlab.sanyu.com'
+  ports:
+    - '80:80'
+    - '443:443'
+    - '22:22'
+  volumes:
+    - '/srv/gitlab/config:/data/gitlab/config'
+    - '/srv/gitlab/logs:/data/gitlab/logs'
+    - '/srv/gitlab/data:/data/gitlab/data'
